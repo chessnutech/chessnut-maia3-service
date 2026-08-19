@@ -29,7 +29,6 @@ repository before starting the service. Mock mode is only intended for an
 explicitly configured development or staging smoke test (`MAIA3_MODE=mock`).
 
 ```powershell
-cd services/maia3_microservice
 python -m venv .venv
 .\.venv\Scripts\pip install -r requirements.txt
 .\.venv\Scripts\pip install -i https://pypi.org/simple "git+https://github.com/CSSLab/maia3.git"
@@ -66,29 +65,6 @@ whole-game review never holds a session needed by a live bot move. The legacy
 specific variable is omitted. Match the Go global request guards to these
 pool sizes and size both pools to the CPU/GPU/RAM available on the inference
 host.
-
-## Local Run
-
-```powershell
-cd services/maia3_microservice
-python -m venv .venv
-.\.venv\Scripts\pip install -r requirements.txt
-.\.venv\Scripts\python -m uvicorn app.main:app --host 0.0.0.0 --port 8891
-```
-
-Then configure the main backend:
-
-```yaml
-maia3_service_url: "http://127.0.0.1:8891"
-```
-
-To run the main Go backend integration test against this service:
-
-```powershell
-cd chessapi-master/chessapi
-$env:MAIA3_REAL_SERVICE_URL="http://127.0.0.1:8891"
-go test ./service -run TestMaia3HTTPClientTalksToRealServiceWhenConfigured -count=1 -v
-```
 
 ## AGPL Notice
 
