@@ -1,0 +1,12 @@
+Chessnut Maia 3 Inference Microservice
+
+This service is the independently deployable AGPL-3.0 boundary for Maia 3
+integration. It is intended to be published as open source together with any
+Maia 3 engine modifications used by Chessnut.
+
+Upstream Maia 3: https://github.com/CSSLab/maia3
+License: GNU Affero General Public License v3.0
+
+The closed-source Chessnut apps and main backend communicate with this service
+only through HTTP APIs and must not import this Python package, Maia 3, PyTorch,
+or Maia 3 model weights directly.

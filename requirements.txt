@@ -1,0 +1,6 @@
+fastapi==0.115.13
+uvicorn[standard]==0.34.3
+python-chess==1.999
+pytest==8.4.1
+httpx==0.28.1
+git+https://github.com/CSSLab/maia3.git
